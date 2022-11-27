@@ -40,7 +40,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const { DateTime } = require("luxon");
+const DateTime = require("moment");
 const { promisify } = require("util");
 const fs = require("fs");
 const path = require("path");
@@ -59,6 +59,8 @@ const localImages = require("./third_party/eleventy-plugin-local-images/.elevent
 const CleanCSS = require("clean-css");
 const GA_ID = require("./_data/metadata.json").googleAnalyticsId;
 const { cspDevMiddleware } = require("./_11ty/apply-csp.js");
+
+DateTime.locale("fr")
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -144,18 +146,16 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "dd LLL yyyy"
-    );
+    return DateTime(dateObj).utc().format('LL');
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
+    return DateTime(dateObj).toISOString();
   });
 
   eleventyConfig.addFilter("sitemapDateTimeString", (dateObj) => {
-    const dt = DateTime.fromJSDate(dateObj, { zone: "utc" });
+    const dt = DateTime(dateObj).utc().format('LL');
     if (!dt.isValid) {
       return "";
     }
