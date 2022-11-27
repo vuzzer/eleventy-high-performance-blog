@@ -47,7 +47,8 @@ function share(anchor) {
     });
   } else if (navigator.clipboard) {
     navigator.clipboard.writeText(url);
-    message("Article URL copied to clipboard.");
+    // Article URL copied to clipboard
+    message("URL de l'article copié dans le presse-papiers.");
   } else {
     tweet_(url);
   }
