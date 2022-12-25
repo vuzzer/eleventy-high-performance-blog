@@ -111,5 +111,5 @@ Voilà, félicitations, vous venez d'écrire votre premier contrat intelligent.
 
 **Recommendé**
 Pour apprendre davantage:
-* Visite la [documentation de solidity](https://docs.soliditylang.org/en/v0.8.17/)
+* Visitez la [documentation de solidity](https://docs.soliditylang.org/en/v0.8.17/)
 * Jouez avec les smarts contracts par défaut fournis avec Remix pour vous familiariser avec l'environnement.
