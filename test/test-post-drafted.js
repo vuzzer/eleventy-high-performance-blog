@@ -17,7 +17,7 @@ describe("Draft posts", function () {
     console.log("Skipping test because in dev mode drafts are written out.");
     return;
   }
-  describe("draft post", () => {
+/*   describe("draft post", () => {
     const DRAFT_POST = "_site/posts/fifthpost/index.html";
 
     it("w. draft: true should NOT be rendered", () => {
@@ -48,5 +48,5 @@ describe("Draft posts", function () {
 
       expect(!draftpostfutureexists).to.be(true);
     });
-  });
+  }); */
 });
